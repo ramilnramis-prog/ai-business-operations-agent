@@ -47,6 +47,26 @@ The agent analyzes structured business data from Excel, selects and executes det
 - Error handling and grounding rules to reduce hallucinations
 
 
+## Demo
+
+### Business Analysis
+
+The agent combines sales and inventory data to identify products that require attention and explain the business impact.
+
+![Business Analysis](docs/screenshots/business-analysis.png)
+
+### Revenue Exposure
+
+The agent calculates how much current revenue is associated with products that need replenishment.
+
+![Revenue Exposure](docs/screenshots/revenue-exposure.png)
+
+### Human-in-the-Loop Approval
+
+Reorder requests require explicit human approval before the workflow continues.
+
+![Human-in-the-Loop Approval](docs/screenshots/hitl-approval.png)
+
 
 ## Architecture
 
@@ -299,3 +319,14 @@ pytest -v
 
 ```
 
+## Testing
+
+The project includes automated tests for business logic, API endpoints, LangGraph tool execution, Human-in-the-Loop workflows, Excel validation, and security-related edge cases.
+
+Current test suite:
+
+```text
+18 passed
+
+Run the full test suite with:
+pytest -v
