@@ -1,4 +1,4 @@
-\# AI Business Operations Agent
+# AI Business Operations Agent
 
 
 
@@ -10,41 +10,41 @@ The agent analyzes structured business data from Excel, selects and executes det
 
 
 
-\## Key Features
+## Key Features
 
 
 
-\- AI agent powered by the OpenAI Responses API
+- AI agent powered by the OpenAI Responses API
 
-\- LangGraph workflow with state, nodes, edges, routing, and memory
+- LangGraph workflow with state, nodes, edges, routing, and memory
 
-\- Tool Calling for deterministic business operations
+- Tool Calling for deterministic business operations
 
-\- Excel data ingestion with validation
+- Excel data ingestion with validation
 
-\- Sales analysis by product
+- Sales analysis by product
 
-\- Inventory shortage detection
+- Inventory shortage detection
 
-\- Automated reorder planning
+- Automated reorder planning
 
-\- Product prioritization based on revenue and stock shortage
+- Product prioritization based on revenue and stock shortage
 
-\- Revenue exposure analysis
+- Revenue exposure analysis
 
-\- Statistical sales anomaly detection
+- Statistical sales anomaly detection
 
-\- Human-in-the-Loop approval and rejection workflow
+- Human-in-the-Loop approval and rejection workflow
 
-\- Conversation history and thread-based state
+- Conversation history and thread-based state
 
-\- FastAPI backend
+- FastAPI backend
 
-\- Streamlit web interface
+- Streamlit web interface
 
-\- Automated pytest test suite
+- Automated pytest test suite
 
-\- Error handling and grounding rules to reduce hallucinations
+- Error handling and grounding rules to reduce hallucinations
 
 
 
@@ -97,11 +97,11 @@ The application is split into several layers:
 
 
 
-\## Business Data Format
+## Business Data Format
 
 
 
-The agent works with a single Excel workbook named `business\_data.xlsx`.
+The agent works with a single Excel workbook named `business_data.xlsx`.
 
 
 
@@ -109,7 +109,7 @@ The workbook must contain two sheets:
 
 
 
-\### Sales
+### Sales
 
 
 
@@ -135,7 +135,7 @@ Required columns:
 
 
 
-\### Inventory
+### Inventory
 
 
 
@@ -153,7 +153,7 @@ Required columns:
 
 | `stock` | Current stock |
 
-| `reorder\_level` | Target inventory level |
+| `reorder_level` | Target inventory level |
 
 
 
@@ -161,11 +161,11 @@ The file is validated before it becomes available to the agent. Invalid files ar
 
 
 
-\## How to Run
+## How to Run
 
 
 
-\### 1. Clone the repository
+### 1. Clone the repository
 
 
 
@@ -179,7 +179,7 @@ cd ai-business-operations-agent
 
 
 
-\### 2. Create and activate a virtual environment
+### 2. Create and activate a virtual environment
 
 
 
@@ -197,7 +197,7 @@ python -m venv .venv
 
 
 
-\### 3. Install dependencies
+### 3. Install dependencies
 
 
 
@@ -225,7 +225,7 @@ pip install -r requirements-dev.txt
 
 
 
-\### 4. Configure environment variables
+### 4. Configure environment variables
 
 
 
@@ -235,9 +235,9 @@ Create a `.env` file in the project root:
 
 ```env
 
-OPENAI\_API\_KEY=your\_openai\_api\_key
+OPENAI_API_KEY=your_openai_api_key
 
-OPENAI\_MODEL=your\_model\_name
+OPENAI_MODEL=your_model_name
 
 ```
 
@@ -247,7 +247,7 @@ The `.env` file is excluded from Git and should never be committed.
 
 
 
-\### 5. Start the FastAPI backend
+### 5. Start the FastAPI backend
 
 
 
@@ -271,7 +271,7 @@ http://127.0.0.1:8000
 
 
 
-\### 6. Start the Streamlit frontend
+### 6. Start the Streamlit frontend
 
 
 
@@ -289,7 +289,7 @@ streamlit run frontend\\app.py
 
 
 
-\### 7. Run automated tests
+### 7. Run automated tests
 
 
 
