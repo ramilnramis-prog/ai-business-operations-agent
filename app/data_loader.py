@@ -35,7 +35,15 @@ REQUIRED_COLUMNS = {
 def validate_business_file(file_path: str) -> dict:
     errors = []
 
-    with pd.ExcelFile(file_path) as excel_file:
+    try:
+        excel_context = pd.ExcelFile(file_path)
+    except Exception:
+        return {
+            "valid": False,
+            "errors": ["Unable to read Excel file."],
+        }
+
+    with excel_context as excel_file:
         for sheet_name, required_columns in REQUIRED_COLUMNS.items():
             if sheet_name not in excel_file.sheet_names:
                 errors.append(

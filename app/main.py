@@ -2,6 +2,7 @@ from typing import Literal
 
 from pathlib import Path
 import shutil
+import re
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from pydantic import BaseModel, Field
 
@@ -16,6 +17,17 @@ app = FastAPI(
     title="AI Business Operations Agent"
 )
 
+THREAD_ID_PATTERN = re.compile(r"^[A-Za-z0-9_-]{1,128}$")
+
+
+def validate_thread_id(thread_id: str) -> str:
+    if not THREAD_ID_PATTERN.fullmatch(thread_id):
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid thread_id.",
+        )
+
+    return thread_id
 
 class ChatMessage(BaseModel):
     role: Literal["user", "assistant"]
@@ -76,6 +88,9 @@ def run_agent_endpoint(payload: AgentRequest):
         thread_id=payload.thread_id,
     )
 
+def run_agent_endpoint(payload: AgentRequest):
+    validate_thread_id(payload.thread_id)
+
 
 @app.post(
     "/api/v1/agent/approval",
@@ -92,11 +107,16 @@ def approval_endpoint(payload: ApprovalRequest):
         thread_id=payload.thread_id,
     )
 
+def approval_endpoint(payload: ApprovalRequest):
+    validate_thread_id(payload.thread_id)
+
 @app.post("/api/v1/files/upload")
 async def upload_business_file(
     thread_id: str = Form(...),
     business_file: UploadFile = File(...),
 ):
+
+    validate_thread_id(thread_id)
     upload_dir = Path("data/uploads") / thread_id
     upload_dir.mkdir(
         parents=True,
