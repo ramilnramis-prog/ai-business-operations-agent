@@ -131,50 +131,29 @@ The workbook must contain two sheets:
 
 ### Sales
 
-
-
 Required columns:
 
-
-
 | Column | Description |
-
 |---|---|
-
 | `date` | Sale date |
-
 | `product` | Product name |
-
 | `category` | Product category |
-
 | `units` | Units sold |
-
 | `revenue` | Revenue generated |
-
 | `price` | Product price |
 
 
 
 ### Inventory
 
-
-
 Required columns:
 
-
-
 | Column | Description |
-
 |---|---|
-
 | `product` | Product name |
-
 | `warehouse` | Warehouse name |
-
 | `stock` | Current stock |
-
 | `reorder_level` | Target inventory level |
-
 
 
 The file is validated before it becomes available to the agent. Invalid files are rejected and are not used for analysis.
@@ -327,6 +306,10 @@ Current test suite:
 
 ```text
 18 passed
+```
 
 Run the full test suite with:
+
+```powershell
 pytest -v
+```
